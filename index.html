@@ -1,269 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matthew Shum</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    :root {
-      --eau: #c8d8c2;
-      --eau-dark: #8fae93;
-      --cream: #fff8e8;
-      --paper: #fbf2db;
-      --ink: #243126;
-      --green: #31533a;
-      --moss: #687a45;
-      --copper: #9b6237;
-      --gold: #b4975a;
-      --line: #7d6a43;
-    }
-
-    * { box-sizing: border-box; }
-
-    body.homepage {
+    body {
       margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at 12% 15%, rgba(255, 248, 232, .85) 0 0.18rem, transparent 0.2rem),
-        radial-gradient(circle at 88% 12%, rgba(155, 98, 55, .18) 0 0.22rem, transparent 0.24rem),
-        radial-gradient(circle at 18% 86%, rgba(49, 83, 58, .18) 0 0.25rem, transparent 0.27rem),
-        linear-gradient(135deg, #bcd0b8 0%, var(--eau) 45%, #dce7d2 100%);
-      background-size: 3.5rem 3.5rem, 4.2rem 4.2rem, 5rem 5rem, auto;
-      padding: 3rem 1.2rem;
+      background: #b8d8cf; /* Eau de Nil */
+      color: #1f2522;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
     }
 
-    .page-frame {
-      max-width: 1040px;
+    a:link, a:visited {
+      color: #6b3f22;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #3f2718;
+    }
+
+    .page {
+      max-width: 1280px;
       margin: 0 auto;
-      background: var(--cream);
-      border: 3px solid var(--line);
-      box-shadow: 0 1.2rem 3rem rgba(36, 49, 38, .22);
-      position: relative;
-      padding: 1rem;
-    }
-
-    .page-frame::before {
-      content: "";
-      position: absolute;
-      inset: .55rem;
-      border: 1px solid rgba(125, 106, 67, .65);
-      pointer-events: none;
-    }
-
-    .inner-border {
-      border: 7px double var(--gold);
-      padding: clamp(1.6rem, 4vw, 3.2rem);
-      background:
-        linear-gradient(rgba(255,248,232,.93), rgba(255,248,232,.93)),
-        repeating-linear-gradient(45deg, rgba(49,83,58,.08) 0 2px, transparent 2px 18px);
-      position: relative;
-      z-index: 1;
-    }
-
-    .ornament-top,
-    .ornament-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      color: var(--green);
-      margin: .25rem 0 1.8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: .75rem;
-    }
-
-    .ornament-top::before,
-    .ornament-top::after,
-    .ornament-bottom::before,
-    .ornament-bottom::after {
-      content: "";
-      height: 2px;
-      width: min(13rem, 22vw);
-      background: linear-gradient(90deg, transparent, var(--copper), var(--green), transparent);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 1.2rem 1rem 1.7rem;
-    }
-
-    .kicker {
-      margin: 0 0 1rem;
-      color: var(--moss);
-      font-size: .9rem;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      font-weight: bold;
+      padding: 12px 4px 0 4px;
     }
 
     h1 {
-      margin: 0;
-      color: var(--green);
-      font-size: clamp(3rem, 7vw, 5.7rem);
-      line-height: .92;
-      letter-spacing: .015em;
-      text-shadow: 1px 1px 0 rgba(180,151,90,.35);
+      margin: 0 0 22px 0;
+      text-align: center;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 700;
     }
 
-    .title {
-      margin: 1.15rem 0 .4rem;
-      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
-      font-weight: bold;
-      color: #2d2d25;
+    h1 a {
+      color: #6b3f22 !important;
+      text-decoration: underline;
     }
 
-    .email {
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    a {
-      color: #214f3c;
-      text-decoration-color: rgba(155, 98, 55, .75);
-      text-underline-offset: 4px;
-      text-decoration-thickness: 1px;
-    }
-
-    a:hover { color: var(--copper); }
-
-    .feature-links {
+    .main {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.1rem;
-      margin: 1.5rem 0 1.8rem;
+      grid-template-columns: 1fr 1fr;
+      background: rgba(244, 246, 238, 0.54);
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      min-height: 205px;
     }
 
-    .feature-card {
-      display: block;
-      min-height: 11rem;
-      padding: 1.35rem;
-      background:
-        radial-gradient(circle at top right, rgba(200,216,194,.5), transparent 45%),
-        #fffaf0;
-      border: 1px solid rgba(125,106,67,.65);
-      box-shadow: inset 0 0 0 4px rgba(180,151,90,.16), 0 .5rem 1.1rem rgba(36,49,38,.08);
-      text-decoration: none;
-      color: var(--ink);
-      position: relative;
+    .column {
+      padding: 10px 14px 24px 14px;
     }
 
-    .feature-card::before {
-      content: "✦";
-      position: absolute;
-      top: .9rem;
-      right: 1rem;
-      color: var(--copper);
-      font-size: 1.2rem;
+    .left {
+      border-right: 2px solid rgba(94, 116, 104, 0.55);
     }
 
-    .feature-card small {
-      display: block;
-      color: var(--copper);
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: .72rem;
-      font-weight: bold;
-      margin-bottom: .55rem;
+    h2 {
+      font-size: 25px;
+      line-height: 1.15;
+      text-align: center;
+      margin: 0 0 28px 0;
+      font-weight: 700;
     }
 
-    .feature-card strong {
-      display: block;
-      color: var(--green);
-      font-size: 2rem;
-      margin-bottom: .45rem;
+    .info {
+      max-width: 490px;
+      line-height: 1.12;
     }
 
-    .feature-card span {
-      display: block;
-      line-height: 1.5;
+    .research {
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .classes-title {
+      margin-top: 24px;
+      margin-bottom: 24px;
     }
 
     .classes {
-      margin-top: 1rem;
-      padding: 1.45rem;
-      background: rgba(255, 250, 240, .7);
-      border-top: 4px double var(--line);
-      border-bottom: 4px double var(--line);
+      display: inline-block;
+      text-align: left;
+      line-height: 1.14;
     }
 
-    .classes h2 {
-      margin: 0 0 .85rem;
-      color: var(--green);
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    .class-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: .7rem;
-    }
-
-    .class-list li {
-      padding: .75rem 1rem .75rem 2.2rem;
-      background: rgba(255,255,255,.42);
-      border: 1px solid rgba(125,106,67,.25);
-      position: relative;
-    }
-
-    .class-list li::before {
-      content: "❦";
-      position: absolute;
-      left: .75rem;
-      color: var(--copper);
-    }
-
-    .ornament-bottom {
-      margin: 1.8rem 0 .25rem;
-    }
-
-    @media (max-width: 720px) {
-      body.homepage { padding: 1rem; }
-      .feature-links { grid-template-columns: 1fr; }
-      .inner-border { padding: 1.25rem; }
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+      .page { padding: 10px 8px; }
+      h1 { font-size: 32px; }
+      .main { grid-template-columns: 1fr; }
+      .left { border-right: 0; border-bottom: 2px solid rgba(94, 116, 104, 0.55); }
+      h2 { margin-bottom: 18px; }
+      .research { text-align: left; }
+      .classes { display: block; }
     }
   </style>
 </head>
-<body class="homepage">
-  <main class="page-frame">
-    <div class="inner-border">
-   
+<body>
+  <div class="page">
+    <h1><a href="index.html">Matthew Shum</a></h1>
 
-      <header class="hero">
-        <h1>Matthew Shum</h1>
-        <p class="title">Principal Economist, Amazon</p>
-        <p class="email">E-mail: <a href="mailto:mshum.work@gmail.com">mshum.work@gmail.com</a></p>
-      </header>
-
-      <nav class="feature-links" aria-label="Primary links">
-        <a class="feature-card" href="papers/cvweb.pdf">
-          <small>Curriculum Vitae</small>
-          <strong>CV</strong>
-        </a>
-
-        <a class="feature-card" href="res.html">
-          <small>Research</small>
-          <strong>Papers</strong>
-        </a>
-      </nav>
-
-      <section class="classes">
-        <h2>Classes</h2>
-        <ul class="class-list">
-          <li><a href="ec105/ec105.html">Ec105: Firms, Competition &amp; Industrial Organization</a></li>
-          <li><a href="stats/stats.html">SS222a: Econometrics I: Statistics</a></li>
-          <li><a href="gradio/ioclass.html">SS223b: Empirical Methods for Industrial Organization</a></li>
-        </ul>
+    <div class="main">
+      <section class="column left">
+        <h2>Info</h2>
+        <div class="info">
+          Principal Economist<br>
+          <a href="https://www.amazon.com/">Amazon.com</a><br>
+          Selling Partner Services<br>
+          <br>
+          E-Mail: <a href="mailto:mshum.work@gmail.com">mshum.work@gmail.com</a>
+        </div>
       </section>
 
-      <div class="ornament-bottom" aria-hidden="true">Applied Econometrics</div>
+      <section class="column right">
+        <h2>Research</h2>
+        <div class="research">
+          Click for my <a href="papers/cvweb.pdf">CV</a> and <a href="res.html">papers</a>
+
+          <h2 class="classes-title">Classes</h2>
+          <div class="classes">
+            <a href="ec105/ec105.html">Ec105: Firms, Competition &amp; Industrial Organization</a><br>
+            <a href="stats/stats.html">SS222a: Econometrics I: Statistics</a><br>
+            <a href="gradio/ioclass.html">SS223b: Empirical Methods for Industrial Organization</a>
+          </div>
+        </div>
+      </section>
     </div>
-  </main>
+  </div>
 </body>
 </html>

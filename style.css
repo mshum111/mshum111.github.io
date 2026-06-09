@@ -1,26 +1,16 @@
+/* Shared fallback styling for non-home pages. The homepage has inline CSS to preserve the original Caltech-like layout. */
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 16px;
-  line-height: 1.45;
-  max-width: 900px;
-  margin: 35px auto;
-  padding: 0 24px;
-  color: #111;
-  background: #fff;
+  background: #b8d8cf;
+  color: #1f2522;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 24px;
 }
-a { color: #0000EE; text-decoration: underline; }
-a:visited { color: #551A8B; }
-h1, h2, h3, h4 { font-weight: bold; margin-bottom: 0.35em; }
-h1 { font-size: 2em; }
-h2 { font-size: 1.55em; }
-h3 { font-size: 1.25em; }
-h4 { font-size: 1.05em; }
-hr { border: none; border-top: 1px solid #888; margin: 1.2em 0; }
-ul { padding-left: 1.4em; }
-li { margin: .28em 0; }
-.section { margin-top: 1.2em; }
-.note { color: #555; font-size: .95em; }
-.header { margin-bottom: 1.5em; }
-.small { font-size: .95em; }
-
-/* Revised Arts & Crafts homepage styles are embedded in index.html so GitHub Pages cannot miss them. */
+a:link, a:visited { color: #6b3f22; }
+a:hover { color: #3f2718; }
+h1, h2, h3 { font-weight: 700; }
+main, .content, .container {
+  background: rgba(244,246,238,0.54);
+  padding: 24px;
+  max-width: 1000px;
+}
