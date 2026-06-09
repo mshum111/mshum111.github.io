@@ -5,42 +5,268 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Matthew Shum</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --eau: #c8d8c2;
+      --eau-dark: #8fae93;
+      --cream: #fff8e8;
+      --paper: #fbf2db;
+      --ink: #243126;
+      --green: #31533a;
+      --moss: #687a45;
+      --copper: #9b6237;
+      --gold: #b4975a;
+      --line: #7d6a43;
+    }
+
+    * { box-sizing: border-box; }
+
+    body.homepage {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(255, 248, 232, .85) 0 0.18rem, transparent 0.2rem),
+        radial-gradient(circle at 88% 12%, rgba(155, 98, 55, .18) 0 0.22rem, transparent 0.24rem),
+        radial-gradient(circle at 18% 86%, rgba(49, 83, 58, .18) 0 0.25rem, transparent 0.27rem),
+        linear-gradient(135deg, #bcd0b8 0%, var(--eau) 45%, #dce7d2 100%);
+      background-size: 3.5rem 3.5rem, 4.2rem 4.2rem, 5rem 5rem, auto;
+      padding: 3rem 1.2rem;
+    }
+
+    .page-frame {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: var(--cream);
+      border: 3px solid var(--line);
+      box-shadow: 0 1.2rem 3rem rgba(36, 49, 38, .22);
+      position: relative;
+      padding: 1rem;
+    }
+
+    .page-frame::before {
+      content: "";
+      position: absolute;
+      inset: .55rem;
+      border: 1px solid rgba(125, 106, 67, .65);
+      pointer-events: none;
+    }
+
+    .inner-border {
+      border: 7px double var(--gold);
+      padding: clamp(1.6rem, 4vw, 3.2rem);
+      background:
+        linear-gradient(rgba(255,248,232,.93), rgba(255,248,232,.93)),
+        repeating-linear-gradient(45deg, rgba(49,83,58,.08) 0 2px, transparent 2px 18px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament-top,
+    .ornament-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      color: var(--green);
+      margin: .25rem 0 1.8rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .75rem;
+    }
+
+    .ornament-top::before,
+    .ornament-top::after,
+    .ornament-bottom::before,
+    .ornament-bottom::after {
+      content: "";
+      height: 2px;
+      width: min(13rem, 22vw);
+      background: linear-gradient(90deg, transparent, var(--copper), var(--green), transparent);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1.2rem 1rem 1.7rem;
+    }
+
+    .kicker {
+      margin: 0 0 1rem;
+      color: var(--moss);
+      font-size: .9rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: .92;
+      letter-spacing: .015em;
+      text-shadow: 1px 1px 0 rgba(180,151,90,.35);
+    }
+
+    .title {
+      margin: 1.15rem 0 .4rem;
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      font-weight: bold;
+      color: #2d2d25;
+    }
+
+    .email {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: #214f3c;
+      text-decoration-color: rgba(155, 98, 55, .75);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover { color: var(--copper); }
+
+    .feature-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin: 1.5rem 0 1.8rem;
+    }
+
+    .feature-card {
+      display: block;
+      min-height: 11rem;
+      padding: 1.35rem;
+      background:
+        radial-gradient(circle at top right, rgba(200,216,194,.5), transparent 45%),
+        #fffaf0;
+      border: 1px solid rgba(125,106,67,.65);
+      box-shadow: inset 0 0 0 4px rgba(180,151,90,.16), 0 .5rem 1.1rem rgba(36,49,38,.08);
+      text-decoration: none;
+      color: var(--ink);
+      position: relative;
+    }
+
+    .feature-card::before {
+      content: "✦";
+      position: absolute;
+      top: .9rem;
+      right: 1rem;
+      color: var(--copper);
+      font-size: 1.2rem;
+    }
+
+    .feature-card small {
+      display: block;
+      color: var(--copper);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .72rem;
+      font-weight: bold;
+      margin-bottom: .55rem;
+    }
+
+    .feature-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 2rem;
+      margin-bottom: .45rem;
+    }
+
+    .feature-card span {
+      display: block;
+      line-height: 1.5;
+    }
+
+    .classes {
+      margin-top: 1rem;
+      padding: 1.45rem;
+      background: rgba(255, 250, 240, .7);
+      border-top: 4px double var(--line);
+      border-bottom: 4px double var(--line);
+    }
+
+    .classes h2 {
+      margin: 0 0 .85rem;
+      color: var(--green);
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .class-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: .7rem;
+    }
+
+    .class-list li {
+      padding: .75rem 1rem .75rem 2.2rem;
+      background: rgba(255,255,255,.42);
+      border: 1px solid rgba(125,106,67,.25);
+      position: relative;
+    }
+
+    .class-list li::before {
+      content: "❦";
+      position: absolute;
+      left: .75rem;
+      color: var(--copper);
+    }
+
+    .ornament-bottom {
+      margin: 1.8rem 0 .25rem;
+    }
+
+    @media (max-width: 720px) {
+      body.homepage { padding: 1rem; }
+      .feature-links { grid-template-columns: 1fr; }
+      .inner-border { padding: 1.25rem; }
+    }
+  </style>
 </head>
-<body class="home">
-  <main class="page-shell">
-    <header class="site-hero">
-      <div class="ornament" aria-hidden="true"></div>
-      <p class="eyebrow">Empirical Industrial Organization · Applied Econometrics</p>
-      <h1>Matthew Shum</h1>
-      <p class="subtitle">Principal Economist, Amazon</p>
-      <p class="contact">E-Mail: <a href="mailto:mshum.work@gmail.com">mshum.work@gmail.com</a></p>
-    </header>
+<body class="homepage">
+  <main class="page-frame">
+    <div class="inner-border">
+      <div class="ornament-top" aria-hidden="true">Empirical Industrial Organization</div>
 
-    <nav class="home-cards" aria-label="Primary links">
-      <a class="card" href="papers/cvweb.pdf">
-        <span class="card-kicker">Curriculum Vitae</span>
-        <strong>CV</strong>
-        <span>Current appointments, publications, honors, and professional activities.</span>
-      </a>
-      <a class="card" href="res.html">
-        <span class="card-kicker">Research</span>
-        <strong>Papers</strong>
-        <span>Publications and working papers in economics, IO, econometrics, and market design.</span>
-      </a>
-    </nav>
+      <header class="hero">
+        <p class="kicker">Applied Econometrics · Market Design · Industrial Organization</p>
+        <h1>Matthew Shum</h1>
+        <p class="title">Principal Economist, Amazon</p>
+        <p class="email">E-mail: <a href="mailto:mshum.work@gmail.com">mshum.work@gmail.com</a></p>
+      </header>
 
-    <section class="content-panel">
-      <h2>Classes</h2>
-      <ul class="class-list">
-        <li><a href="ec105/ec105.html">Ec105: Firms, Competition &amp; Industrial Organization</a></li>
-        <li><a href="stats/stats.html">SS222a: Econometrics I: Statistics</a></li>
-        <li><a href="gradio/ioclass.html">SS223b: Empirical Methods for Industrial Organization</a></li>
-      </ul>
-    </section>
+      <nav class="feature-links" aria-label="Primary links">
+        <a class="feature-card" href="papers/cvweb.pdf">
+          <small>Curriculum Vitae</small>
+          <strong>CV</strong>
+          <span>Current appointment, publications, honors, editorial activities, grants, and professional service.</span>
+        </a>
 
-    <footer>
-      <p class="note">Recreated static copy for migration to free hosting. Some PDFs are linked to their original public sources when available.</p>
-    </footer>
+        <a class="feature-card" href="res.html">
+          <small>Research</small>
+          <strong>Papers</strong>
+          <span>Publications and working papers in economics, empirical IO, econometrics, and market design.</span>
+        </a>
+      </nav>
+
+      <section class="classes">
+        <h2>Classes</h2>
+        <ul class="class-list">
+          <li><a href="ec105/ec105.html">Ec105: Firms, Competition &amp; Industrial Organization</a></li>
+          <li><a href="stats/stats.html">SS222a: Econometrics I: Statistics</a></li>
+          <li><a href="gradio/ioclass.html">SS223b: Empirical Methods for Industrial Organization</a></li>
+        </ul>
+      </section>
+
+      <div class="ornament-bottom" aria-hidden="true">Applied Econometrics</div>
+    </div>
   </main>
 </body>
 </html>

@@ -1,195 +1,26 @@
-:root {
-  --eau-de-nil: #c9d9c5;
-  --eau-de-nil-deep: #9fb99b;
-  --cream: #f7f1df;
-  --vellum: #fffaf0;
-  --ink: #243126;
-  --leaf: #3e5c3b;
-  --moss: #6f7f4f;
-  --copper: #9a5f36;
-  --line: #8c7b57;
-}
-
-* { box-sizing: border-box; }
-
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 16px;
-  line-height: 1.55;
-  margin: 0;
-  color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,.35), transparent 30rem),
-    linear-gradient(135deg, var(--eau-de-nil) 0%, #dfe8d3 48%, var(--cream) 100%);
-}
-
-body:not(.home) {
-  max-width: 960px;
+  line-height: 1.45;
+  max-width: 900px;
   margin: 35px auto;
   padding: 0 24px;
+  color: #111;
+  background: #fff;
 }
-
-body.home {
-  min-height: 100vh;
-  padding: 34px 18px;
-}
-
-.page-shell {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 30px;
-  background: rgba(255, 250, 240, .88);
-  border: 2px solid var(--line);
-  box-shadow: 0 22px 60px rgba(36, 49, 38, .18);
-  position: relative;
-}
-
-.page-shell::before,
-.page-shell::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-  inset: 12px;
-  border: 1px solid rgba(140, 123, 87, .55);
-}
-
-.site-hero {
-  text-align: center;
-  padding: 34px 20px 28px;
-  border: 1px solid rgba(140, 123, 87, .45);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.50), rgba(255,250,240,.40)),
-    repeating-linear-gradient(45deg, rgba(62,92,59,.04) 0, rgba(62,92,59,.04) 8px, transparent 8px, transparent 18px);
-  position: relative;
-  z-index: 1;
-}
-
-.ornament {
-  width: 132px;
-  height: 24px;
-  margin: 0 auto 14px;
-  background:
-    radial-gradient(circle at 10% 50%, var(--leaf) 0 6px, transparent 7px),
-    radial-gradient(circle at 30% 50%, var(--eau-de-nil-deep) 0 8px, transparent 9px),
-    radial-gradient(circle at 50% 50%, var(--copper) 0 5px, transparent 6px),
-    radial-gradient(circle at 70% 50%, var(--eau-de-nil-deep) 0 8px, transparent 9px),
-    radial-gradient(circle at 90% 50%, var(--leaf) 0 6px, transparent 7px),
-    linear-gradient(90deg, transparent 0 8%, var(--line) 8% 92%, transparent 92%);
-}
-
-.eyebrow {
-  margin: 0 0 10px;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-  font-size: .78rem;
-  color: var(--moss);
-}
-
-h1, h2, h3, h4 { font-weight: bold; margin: 0 0 0.35em; color: var(--leaf); }
-h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); line-height: 1; letter-spacing: .02em; }
+a { color: #0000EE; text-decoration: underline; }
+a:visited { color: #551A8B; }
+h1, h2, h3, h4 { font-weight: bold; margin-bottom: 0.35em; }
+h1 { font-size: 2em; }
 h2 { font-size: 1.55em; }
 h3 { font-size: 1.25em; }
 h4 { font-size: 1.05em; }
-
-.subtitle {
-  font-size: 1.28rem;
-  margin: 12px 0 6px;
-  color: var(--ink);
-}
-
-.contact { margin: 0; }
-
-a { color: #174f3d; text-decoration-color: rgba(154, 95, 54, .55); text-underline-offset: 3px; }
-a:visited { color: #5c3d6b; }
-a:hover { color: var(--copper); }
-
-.home-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  margin: 24px 0;
-  position: relative;
-  z-index: 1;
-}
-
-.card {
-  display: block;
-  padding: 22px;
-  min-height: 150px;
-  color: var(--ink);
-  background: var(--vellum);
-  border: 1px solid rgba(140, 123, 87, .55);
-  box-shadow: 0 8px 22px rgba(36, 49, 38, .08);
-  text-decoration: none;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(36, 49, 38, .13);
-}
-
-.card-kicker {
-  display: block;
-  margin-bottom: 10px;
-  font-size: .75rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--copper);
-}
-
-.card strong {
-  display: block;
-  font-size: 1.65rem;
-  color: var(--leaf);
-  margin-bottom: 8px;
-}
-
-.content-panel {
-  padding: 24px;
-  background: rgba(255, 250, 240, .75);
-  border-top: 4px double var(--line);
-  border-bottom: 4px double var(--line);
-  position: relative;
-  z-index: 1;
-}
-
-.class-list {
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-}
-
-.class-list li {
-  padding: 10px 0 10px 26px;
-  border-bottom: 1px solid rgba(140, 123, 87, .25);
-  position: relative;
-}
-
-.class-list li::before {
-  content: "✦";
-  position: absolute;
-  left: 0;
-  color: var(--copper);
-}
-
-footer {
-  position: relative;
-  z-index: 1;
-  margin-top: 20px;
-  text-align: center;
-}
-
-hr { border: none; border-top: 1px solid var(--line); margin: 1.2em 0; }
+hr { border: none; border-top: 1px solid #888; margin: 1.2em 0; }
 ul { padding-left: 1.4em; }
 li { margin: .28em 0; }
 .section { margin-top: 1.2em; }
-.note { color: #5f6658; font-size: .95em; }
+.note { color: #555; font-size: .95em; }
 .header { margin-bottom: 1.5em; }
 .small { font-size: .95em; }
 
-@media (max-width: 680px) {
-  body.home { padding: 14px; }
-  .page-shell { padding: 18px; }
-  .home-cards { grid-template-columns: 1fr; }
-  .site-hero { padding: 28px 14px 22px; }
-}
+/* Revised Arts & Crafts homepage styles are embedded in index.html so GitHub Pages cannot miss them. */
