@@ -16,3 +16,6 @@ The visible content was recreated from the publicly accessible Caltech mirror. M
 1. Create a repository named `mshum.github.io`.
 2. Upload all files/folders from this directory.
 3. Go to Settings > Pages and publish from the `main` branch.
+
+
+Update included: homepage affiliation changed to Principal Economist, Amazon.com; current CV PDF added at papers/cvweb.pdf; CV HTML page refreshed with current employment and selected recent publications.
