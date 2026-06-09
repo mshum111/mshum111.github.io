@@ -6,8 +6,8 @@ body {
   font-size: 18px;
   margin: 24px;
 }
-a:link, a:visited { color: #6b3f22; }
-a:hover { color: #3f2718; }
+a:link, a:visited { color: #b5531f; }
+a:hover { color: #7f3514; }
 h1, h2, h3 { font-weight: 700; }
 main, .content, .container {
   background: rgba(244,246,238,0.54);
